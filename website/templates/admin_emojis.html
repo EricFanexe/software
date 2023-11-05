@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">User ID</th>
+            <th scope="col">Emoji</th>
+            <th scope="col">Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in records %}
+            <tr>
+                <th scope="row">{{record.Record.id}}</th>
+                <td>{{record.Record.user_id}}</td>
+                <td>{{emojis[record.Record.emoji]}} {{explanations[record.Record.emoji]}}</td>
+                <td>{{record.Record.datetime}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<canvas id="pieChart" style="width:100%;max-width:600px" align="center"></canvas>
+
+<script>
+var xValues = {{ labels | tojson | safe }};
+var yValues = {{ counts | tojson | safe }};
+var barColors = {{ barColors | tojson | safe }};
+
+new Chart("pieChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "emoji pie chart"
+    }
+  }
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+{% endblock %}

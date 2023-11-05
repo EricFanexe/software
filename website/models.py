@@ -5,8 +5,8 @@ import enum
 from sqlalchemy.sql import func
 
 class UserType(enum.Enum):
-    admin = 0
-    ordinary = 1
+    admin = 'admin'
+    ordinary = 'ordinary'
 
 class User(db.Model, UserMixin):
     __tablename__ = 'user'

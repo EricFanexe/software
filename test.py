@@ -13,16 +13,20 @@
 #     session.execute(sa.select().filter_by()).all()
 #     # session.get(User, )
 
-s = '''                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">😃</h3>
-                            <input type="radio" class="btn-check" name="emoji" value="{val}" id="emoji{val}" autocomplete="off">
-                            <label class="btn btn-primary" for="emoji{val}">Happy</label>
-                        </div>
-                    </div>
-                </div>
-'''
+# s = '''                <div class="col">
+#                     <div class="card">
+#                         <div class="card-body">
+#                             <h3 class="card-title">😃</h3>
+#                             <input type="radio" class="btn-check" name="emoji" value="{val}" id="emoji{val}" autocomplete="off">
+#                             <label class="btn btn-primary" for="emoji{val}">Happy</label>
+#                         </div>
+#                     </div>
+#                 </div>
+# '''
 
-for i in range(6):
-    print(s.format(val=i))
+# for i in range(6):
+#     print(s.format(val=i))
+
+from website.admin import randColor
+
+print(randColor())

@@ -4,5 +4,7 @@
   - components > card
   - components > button group
   - form > checks & radios
-- [ ] admin dashboard
+- [x] admin dashboard
 - [ ] data representation & download
+  - [ ] get emoji stat
+  - [ ] pass emoji stat from pathon to js with json

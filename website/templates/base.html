@@ -30,10 +30,20 @@
                         <li class="nav-item">
                             <a href="/logout" id="logOut" class="nav-link">LogOut</a>
                         </li>
-                    {% else %}
-                        {% block additional_links %}
-                        {% endblock %}
+                        {% if user.type.name == 'admin' %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin
+                                </a>
+                                <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/admin/users">Users</a></li>
+                                <li><a class="dropdown-item" href="/admin/emojis">Emojis</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
                     {% endif %}
+
+                    {% block additional_links %}{% endblock %}
                 </ul>
             </div>
         </div>
@@ -62,8 +72,7 @@
     </div>
 
     <!-- bootstrap js -->
-    <script src="{{ url_for('static', filename='jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
 
     <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
 </body>

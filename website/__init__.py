@@ -18,9 +18,11 @@ def create_app():
     
     from .views import viewsBP
     from .auth import authBP
+    from .admin import adminBP
 
     app.register_blueprint(viewsBP)
     app.register_blueprint(authBP)
+    app.register_blueprint(adminBP)
 
     db.init_app(app=app) # initialize the app with the sqlalchemy extension
 
