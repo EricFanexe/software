@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}SignUp{% endblock %}
+
+{% block additional_links %}
+<li class="nav-item">
+    <a href="/login" id="logIn" class="nav-link">LogIn</a>
+</li>
+{% endblock %}
+
+{% block content %}
+
+<form method="post" class="mt-4">
+    <h3 align="center" class="md-3">Sign Up</h3>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email"
+            aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name">
+    </div>
+
+    <div class="mb-3">
+        <label for="password1" class="form-label">Enter password</label>
+        <input type="password" class="form-control" id="password1" name="password1">
+    </div>
+
+    <div class="mb-3">
+        <label for="password2" class="form-label">Confirm password</label>
+        <input type="password" class="form-control" id="password2" name="password2">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

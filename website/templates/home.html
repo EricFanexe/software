@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- emoji post record -->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Emoji</th>
+            <th scope="col">Time</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in user.records %}
+            <tr>
+                <th scope="row">{{record.id}}</th>
+                <td>{{emojis[record.emoji]}} {{explanations[record.emoji]}}</td>
+                <td>{{record.datetime}}</td>
+                <td>
+                    <button type="button" class="btn-close" aria-label="Close" onClick="deleteRecord({{record.id}})"></button>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- post emoji -->
+<div class="container text-center">
+    <form method="post">
+        <div class="row">
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">😃</h3>
+                        <input type="radio" class="btn-check" name="emoji" value="0" id="emoji0" autocomplete="off">
+                        <label class="btn btn-primary" for="emoji0">Happy</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">🤔</h3>
+                        <input type="radio" class="btn-check" name="emoji" value="1" id="emoji1" autocomplete="off">
+                        <label class="btn btn-primary" for="emoji1">Thinking</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">😴</h3>
+                        <input type="radio" class="btn-check" name="emoji" value="2" id="emoji2" autocomplete="off">
+                        <label class="btn btn-primary" for="emoji2">Asleep</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">😎</h3>
+                        <input type="radio" class="btn-check" name="emoji" value="3" id="emoji3" autocomplete="off">
+                        <label class="btn btn-primary" for="emoji3">Cool</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">😨</h3>
+                        <input type="radio" class="btn-check" name="emoji" value="4" id="emoji4" autocomplete="off">
+                        <label class="btn btn-primary" for="emoji4">Worried</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">🥵</h3>
+                        <input type="radio" class="btn-check" name="emoji" value="5" id="emoji5" autocomplete="off">
+                        <label class="btn btn-primary" for="emoji5">Hot</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Submit Emoji</button>
+    </form>
+</div>
+
+{% endblock %}
