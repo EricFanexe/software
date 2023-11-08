@@ -27,8 +27,14 @@
                         <li class="nav-item">
                             <a href="/home" id="home" class="nav-link">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/logout" id="logOut" class="nav-link">LogOut</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Account
+                            </a>
+                            <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/logout">LogOut</a></li>
+                            <li><a class="dropdown-item" href="/changepw">Change Password</a></li>
+                            </ul>
                         </li>
                         {% if user.type.name == 'admin' %}
                             <li class="nav-item dropdown">

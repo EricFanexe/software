@@ -6,3 +6,11 @@ function deleteRecord(recordId) {
         window.location.href = '/home';
     });
 }
+
+function downloadCSV() {
+    fetch('/downloadCSV', {
+        method: 'GET',
+    }).then((_res) => {
+        window.location.href = '/admin/emojis';
+    });
+}

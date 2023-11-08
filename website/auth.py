@@ -59,3 +59,21 @@ def signup():
                 flash('Account created!', category='success')
                 return redirect(url_for('viewsBP.home'))
     return render_template('sign-up.html', user=current_user)
+
+
+@authBP.route('/changepw', methods=['GET', 'POST'])
+@login_required
+def changePassword():
+    if request.method == 'POST':
+        oldPassword = request.form.get('oldPassword')
+        newPassword = request.form.get('newPassword')
+        user: User = db.session.get(User, current_user.id)
+        if check_password_hash(user.pwhash, oldPassword):
+            user.pwhash = generate_password_hash(newPassword)
+            db.session.commit()
+            flash('Password changed successfully!', category='success')
+        else:
+            flash('Password is not correct!', category='error')
+        return redirect(url_for('viewsBP.home'))
+    else:
+        return render_template('change-password.html', user=current_user)
